@@ -56,6 +56,11 @@ class LoginScreen() : AppCompatActivity() {
         loginviewModel.login(body, sessionManager).observe(this) {
             when (it.state) {
                 State.SUCCESS -> {
+                    Toast.makeText(
+                        applicationContext,
+                        it.message,
+                        Toast.LENGTH_LONG
+                    ).show()
                     Intent(applicationContext, MainActivity::class.java).also {
                         it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                         startActivity(it)
