@@ -52,14 +52,11 @@ class MainActivity : AppCompatActivity() {
 
     fun setUser() {
         val user = sessionManager.getUser()
-        val token = sessionManager.fetchToken()
 
         if (user != null) {
             binding?.apply {
                 tvName.text = user.name
                 tvEmail.text = user.email
-                tvToken.text = token
-
             }
         }
     }
